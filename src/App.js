@@ -1,16 +1,28 @@
 import styled from "styled-components";
 import GlobalStyled from "./assets/css/GlobalStyle";
 import Logo from "./components/Logo";
+import Cards from "./components/Cards";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 function App() {
+
+  const [renderingFooter, setRenderingFooter] = useState([]);
+
   return (
     <>
       <GlobalStyled />
-        <ScreenContainer>
-          <Logo />
-          <Footer />
-        </ScreenContainer>
+      <ScreenContainer>
+        <Logo />
+        <Cards
+          renderingFooter={renderingFooter}
+          setRenderingFooter={setRenderingFooter}
+        />
+
+        <Footer
+          renderingFooter={renderingFooter}
+        />
+      </ScreenContainer>
     </>
 
   );
